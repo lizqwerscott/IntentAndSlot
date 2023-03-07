@@ -87,10 +87,9 @@ class Predicter:
                 (i[0], text[i[1] : i[2] + 1], i[1], i[2])
                 for i in get_entities(token_output)
             ]
-            slots_r = []
+            slots_r = {}
             for item in slots:
-                slot = { "key": item[0], "value": item[1] }
-                slots_r.append(slot)
+                slots_r[item[0]] = item[1]
 
             print("意图：", intent)
             print(

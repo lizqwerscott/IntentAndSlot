@@ -6,7 +6,6 @@ import uvicorn
 from predict import Args, Predicter
 
 class TextData(BaseModel):
-    name: Optional[str] = None
     text: str
 
 app = FastAPI()
@@ -30,4 +29,4 @@ async def create_item(text: TextData):
     return res
 
 if __name__ == '__main__':
-    uvicorn.run(app)
+    uvicorn.run(app, host="0.0.0.0", port=9797)
