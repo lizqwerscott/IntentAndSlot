@@ -13,7 +13,8 @@ class Args:
     token_labels_path = "./data/slots.txt"
     bert_dir = "./bert/"
     load_dir = "./data/model.pt"
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cpu")
 
     id2seqlabel = {}
     with open(seq_labels_path, "r") as fp:
