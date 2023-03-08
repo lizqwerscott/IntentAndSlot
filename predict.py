@@ -47,7 +47,7 @@ class Predicter:
     def __init__(self, config):
         self.tokenizer = BertTokenizer.from_pretrained(config.bert_dir)
         self.model = BertForIntentClassificationAndSlotFilling(config)
-        self.model.load_state_dict(torch.load(config.load_dir))
+        self.model.load_state_dict(torch.load(config.load_dir, map_location=torch.device("cpu")))
         self.model.to(config.device)
 
         self.config = config
